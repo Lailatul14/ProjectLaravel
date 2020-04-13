@@ -2,7 +2,18 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    
+    protected $table = 'user';
+    protected $fillable = ['USER_ID','FIRST_NAME','LAST_NAME','EMAIL','PHONE','PASSWORD'];
+    public $timestamps = false;
+}
+
+
+/*use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -15,7 +26,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
+   /* protected $fillable = [
         'name', 'email', 'password',
     ];
 
@@ -24,7 +35,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
+    /*protected $hidden = [
         'password', 'remember_token',
     ];
 
@@ -33,7 +44,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
+    /*protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 }
